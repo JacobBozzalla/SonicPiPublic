@@ -1,0 +1,120 @@
+# Challenge D
+
+use_bpm 136
+use_synth :piano
+
+define :measure2_8 do
+  
+  play:E4
+  sleep 1
+  play:E5
+  play:Gs4
+  sleep 2
+  play:E5
+  play:Gs4
+  sleep 1
+end
+
+define :measure3_4_6 do
+  
+  play :r
+  sleep 1
+  play:E5
+  play:Gs4
+  play:B4
+  sleep 1
+  play:B4
+  sleep 1
+  play:E5
+  play:Gs4
+  sleep 1
+end
+
+define :measure5_7 do
+  
+  play:B4
+  sleep 0.75
+  play:As4
+  sleep 0.25
+  play:Gs4
+  play:B4
+  sleep 0.75
+  play:Cs5
+  sleep 0.25
+  play:B4
+  sleep 1
+  play:Gs4
+  play:E5
+  sleep 1
+end
+
+live_loop:added_background do
+  16.times do
+    sample :drum_heavy_kick
+    sleep 1
+    sample :drum_snare_hard , amp: 0.25
+    sleep 1
+  end
+  stop
+end
+
+live_loop:background_notes do
+  define :part1 do
+    play:E3, amp: 0.25
+    sleep 1
+    play:B3, amp: 0.25
+    play:E4, amp: 0.25
+    sleep 1
+    play:B3, amp: 0.25
+    sleep 1
+    play:E4, amp: 0.25
+    sleep 1
+  end
+  
+  part1
+  
+  part1
+  
+  5.times do
+    part1
+  end
+  stop
+end
+
+# Measure 1
+play :r
+sleep 1
+play:E4
+play:Gs4
+sleep 2
+play:E5
+play:Gs4
+sleep 1
+
+# Measure 2
+measure2_8
+
+# Measure 3
+measure3_4_6
+
+# Measure 4
+measure3_4_6
+
+# Measure 5
+measure5_7
+
+# Measure 6
+measure3_4_6
+
+# Measure 7
+measure5_7
+
+# Measure 8
+measure2_8
+
+sleep 1
+sample :drum_heavy_kick, amp: 2
+sleep 0.35
+sample :drum_heavy_kick, amp: 2
+sleep 0.5
+sample :drum_splash_soft
