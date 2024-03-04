@@ -1,0 +1,8 @@
+# Array Challege G Part 1
+rainbowColors = ["red", "orange", "yellow","green", "blue", "indigo", "violet"]
+i= 0
+7.times do
+  puts(rainbowColors[i])
+  sleep(1)
+  i=i+1
+end
