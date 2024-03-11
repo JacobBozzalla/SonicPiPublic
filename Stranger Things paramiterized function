@@ -1,0 +1,26 @@
+# Stranger Things Main Theme
+use_bpm 160
+use_synth :saw
+
+define :song do |x|
+  play x
+  sleep 0.5
+  
+  
+end
+live_loop :main_theme do
+  with_fx :distortion do
+    4.times do
+      song :c2
+      song :e2
+      song :g2
+      song :b2
+      song :c3
+      song :b2
+      song :g2
+      song :e2
+      
+    end
+    x=0
+  end
+end
