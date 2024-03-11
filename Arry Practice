@@ -1,0 +1,10 @@
+use_bpm 120
+lyrics = ["come", "along", "with", "me", "to", "a", "town", "beside", "the", "sea", "we", "can", "wander", "through", "the", "forest", "and", "do", "so", "as", "we", "please"]
+sleeps = [2, 2, 3, 0.25, 0.5, 0.25, 0.5, 0.5, 0.5,]
+i=0
+22.times do
+  print(lyrics[i])
+  i=i+1
+  sleep(sleeps[i])
+  i2=i2+1
+end
