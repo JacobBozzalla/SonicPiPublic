@@ -1,7 +1,6 @@
 #Custom Song Challenge Seven Nation Army
 vocals = "C:/Users/jacob_bozzalla/Documents/Audacity/audacity The White Stripes - Seven Nation Army isolated vocal track, vocals only.mp3"
 guitar = "C:/Users/jacob_bozzalla/Documents/Audacity/Seven Nation Army - The White Stripes  Only Guitar (Isolated).mp3"
-
 harddrums = "C:/Users/jacob_bozzalla/Documents/Audacity/Seven Nation Army - The White Stripes  Only hard drums (Isolated).mp3"
 
 
@@ -46,7 +45,7 @@ sample vocals
 
 wait 20
 live_loop :drums2 do
-  15.times do
+  17.times do
     sample :drum_cymbal_pedal , amp: 2
     sleep 0.5
     sample :drum_bass_hard, amp: 2
