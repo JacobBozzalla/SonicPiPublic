@@ -1,0 +1,12 @@
+use_synth :blade
+define :my_player do |n, s|
+  puts("Function Call")
+  play n
+  sleep 0.5
+  play :c2
+  sleep s
+end
+
+my_player :d5, 4
+my_player :b4, 3
+my_player :c3, 3
