@@ -1,0 +1,125 @@
+# Challenge H Mortal Kombat
+=begin
+
+Functions are great for when the pattern of notes (sleeps) and the actual notes are exactly the same.
+
+Parameterized functions are great for when:
+a. the pattern of notes is the same but the actual notes are different!
+b. two chunks of code are almost identical but have a few slight differences!
+
+YOUR TASK: Use a parameterized function to optimize the code below.
+
+=end
+use_bpm 120
+use_synth :chiplead
+define :function do |x,y|
+  play x
+  play y
+  sleep 0.5
+end
+# MEASURE 1 ---------------------------
+function :a4, :a5
+
+function :a4, :a5
+
+function :c5, :c6
+
+function :a4, :a5
+
+function :d5, :d6
+
+function :a4, :a5
+
+function :e5, :e6
+
+function :d5, :d6
+# MEASURE 2 ---------------------------
+sleep 16
+
+function :c5, :c6
+
+function :c5, :c6
+
+function :e5, :e6
+
+function :c5, :c6
+
+function :g5, :g6
+
+function :c4, :c5
+
+function :e5, :e6
+
+function :c4, :c5
+
+# MEASURE 3 ---------------------------
+sleep 16
+
+function :g4, :g5
+
+function :g4, :g5
+
+function :b4, :b5
+
+function :g4, :g5
+
+function :c5, :c6
+
+function :g4, :g5
+
+function :d5, :d6
+
+function :c5, :c6
+
+# MEASURE 4 ---------------------------
+sleep 16
+function :f4, :f5
+
+function :f4, :f5
+
+function :a4, :a5
+
+function :f4, :f5
+
+function :c5, :c6
+
+function :f4, :f5
+
+function :c5, :c6
+
+function :b4, :b5
+
+#Extra Measures ----------------------
+sleep 16
+
+function :a4, :a5
+
+function :a4, :a5
+
+function :c5, :c6
+
+function :a4, :a5
+
+function :d5, :d6
+
+function :a4, :a5
+
+function :e5, :e6
+
+function :d5, :d6
+
+function :c5, :c6
+
+function :c5, :c6
+
+function :e5, :e6
+
+function :c5, :c6
+
+function :g5, :g6
+
+function :c4, :c5
+
+function :e5, :e6
+
+function :c4, :c5
