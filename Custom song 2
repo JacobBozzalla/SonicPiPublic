@@ -1,0 +1,5 @@
+print("song 2")
+60.times do
+  sample :drum_snare_hard, amp: 1.25
+  wait 0.425
+end
