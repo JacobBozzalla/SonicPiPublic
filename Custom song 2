@@ -1,5 +1,37 @@
-print("song 2")
-60.times do
-  sample :drum_snare_hard, amp: 1.25
-  wait 0.425
+# Custom Song 2
+x=0
+live_loop :timer do
+  print(x)
+  x=x+0.5
+  wait 0.5
 end
+
+define :function1 do |a,b,c,d,e|
+  sample :drum_heavy_kick, amp: 5
+  wait a
+  sample :drum_heavy_kick, amp: 5
+  wait b
+  sample :drum_heavy_kick, amp: 5
+  wait c
+  sample :drum_heavy_kick, amp: 5
+  wait d
+  sample :drum_heavy_kick, amp: 5
+  wait e
+end
+
+live_loop :background_drums do
+  use_bpm 173
+  print("song 2")
+  78.times do
+    sample :drum_tom_lo_hard, amp: 1.25
+    wait 1
+  end
+  stop
+end
+
+wait 4.5
+
+7.times do
+  function1 0.2, 1.25, 0.2, 0.3, 1.25
+end
+print("all stop for now")
