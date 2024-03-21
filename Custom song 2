@@ -1,46 +1,81 @@
 # Custom Song 2
-
-x=0
+use_synth :bass_foundation
+t=0
 live_loop :timer do
-  print(x)
-  x=x+0.5
+  print(t)
+  t=t+0.5
   wait 0.5
 end
+
 use_bpm 173
-define :function1 do |x|
-  sample :drum_heavy_kick, amp: 2.5
-  wait x
-  
+define :function1 do |s|
+  sample :drum_heavy_kick, amp: 3.5
+  wait s
 end
 
 live_loop :background_drums do
   print("song 2")
-  100.times do
+  
+  78.times do
     sample :drum_snare_hard, amp: 1.25
     wait 1
   end
   stop
 end
 
-wait 4.5
+wait 14.5
 
-8.times do
+7.times do
   function1 0.5
   function1 3
   function1 0.5
   function1 1.5
   function1 3
-  
-  
-  
 end
-print("all stop for now")
 
-sample :drum_splash_soft
-wait 1
-sample :drum_splash_soft
-wait 2
+sample :drum_splash_soft, amp: 2
+wait 0.75
+sample :drum_splash_soft, amp: 2
+wait 1.5
 live_loop :cymbol do
-  sample :drum_splash_soft, cutoff_slide: 0.75, amp: 0.75
-  wait 1
+  62.times do
+    sample :drum_cymbal_closed, amp: 2
+    wait 1
+  end
+  stop
+end
+
+wait 1
+
+drumsleep = [1,0.5,2,1,0.5,0.5,2 ]
+i=0
+live_loop :drum2 do
+  4.times do
+    7.times do
+      sample :drum_snare_hard
+      sleep (drumsleep [i])
+      i=i+1
+    end
+    i=0
+  end
+  stop
+end
+
+wait 30
+
+3.times do
+  sample :drum_snare_hard
+  wait 0.25
+end
+i=0
+live_loop :drum3 do
+  4.times do
+    7.times do
+      sample :drum_snare_hard
+      sleep (drumsleep [i])
+      i=i+1
+    end
+    i=0
+  end
+  stop
 end
