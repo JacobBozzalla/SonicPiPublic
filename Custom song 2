@@ -1,4 +1,12 @@
 # Custom Song 2
+TPGuitar = "C:/Users/jacob_bozzalla/Documents/Audacity/TPguitar.mp3"
+TPVocals = "C:/Users/jacob_bozzalla/Documents/Audacity/TPVocals.mp3"
+enddrums = "C:/Users/jacob_bozzalla/Documents/Audacity/enddrums.mp3"
+
+
+
+
+
 use_synth :bass_foundation
 t=0
 live_loop :timer do
@@ -8,17 +16,20 @@ live_loop :timer do
 end
 
 use_bpm 173
-define :function1 do |s|
-  sample :drum_heavy_kick, amp: 3.5
+define :function do |s|
+  sample :drum_heavy_kick, amp: 2
   wait s
 end
 
+sample TPGuitar, amp: 3.5
+sample TPVocals, amp: 3.5
+sample enddrums, amp: 3.5
+
 live_loop :background_drums do
-  print("song 2")
   
   78.times do
-    sample :drum_snare_hard, amp: 1.25
-    wait 1
+    sample :drum_snare_hard
+    wait 1.1
   end
   stop
 end
@@ -26,17 +37,14 @@ end
 wait 14.5
 
 7.times do
-  function1 0.5
-  function1 3
-  function1 0.5
-  function1 1.5
-  function1 3
+  function 0.5
+  function 3
+  function 0.5
+  function 1.5
+  function 3
 end
 
-sample :drum_splash_soft, amp: 2
-wait 0.75
-sample :drum_splash_soft, amp: 2
-wait 1.5
+wait 5
 live_loop :cymbol do
   62.times do
     sample :drum_cymbal_closed, amp: 2
@@ -65,7 +73,7 @@ wait 30
 
 3.times do
   sample :drum_snare_hard
-  wait 0.25
+  wait 0.35
 end
 i=0
 live_loop :drum3 do
@@ -79,3 +87,9 @@ live_loop :drum3 do
   end
   stop
 end
+live_loop :end
+10.times do
+    sample :drum_snare_hard, amp: a
+    wait 1.1
+  end
+ 
