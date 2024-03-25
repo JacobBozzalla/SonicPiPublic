@@ -3,10 +3,6 @@ TPGuitar = "C:/Users/jacob_bozzalla/Documents/Audacity/TPguitar.mp3"
 TPVocals = "C:/Users/jacob_bozzalla/Documents/Audacity/TPVocals.mp3"
 enddrums = "C:/Users/jacob_bozzalla/Documents/Audacity/enddrums.mp3"
 
-
-
-
-
 use_synth :bass_foundation
 t=0
 live_loop :timer do
@@ -87,9 +83,12 @@ live_loop :drum3 do
   end
   stop
 end
-live_loop :end
-10.times do
+a=1
+live_loop :end do
+  10.times do
     sample :drum_snare_hard, amp: a
     wait 1.1
+    a=a-0.1
   end
- 
+  stop
+end
