@@ -5,35 +5,27 @@
 #https://www.youtube.com/watch?v=Y2h4VRhp2Gc (TP Drums)
 #https://www.youtube.com/watch?v=vnccI_WVS4U (TP Vocals)
 #https://www.youtube.com/watch?v=20ahr-ycWos&t=35s (TP Guitar)
-vocals = "C:/Users/jacob_bozzalla/Documents/Audacity/vocals cut.mp3"
-guitar = "C:/Users/jacob_bozzalla/Documents/Audacity/Seven Nation Army - The White Stripes  Only Guitar (Isolated).mp3"
-harddrums = "C:/Users/jacob_bozzalla/Documents/Audacity/Seven Nation Army - The White Stripes  Only hard drums (Isolated).mp3"
-TPGuitar = "C:/Users/jacob_bozzalla/Documents/Audacity/TPguitar.mp3"
-TPVocals = "C:/Users/jacob_bozzalla/Documents/Audacity/TPVocals.mp3"
-enddrums = "C:/Users/jacob_bozzalla/Documents/Audacity/enddrums.mp3"
-
-
-t=0
-live_loop :timer do
-  print(t)
-  t=t+0.5
-  wait 0.5
-end
+vocals = "C:/Users/jacob_bozzalla/Downloads/vocals cut.mp3"
+guitar = "C:/Users/jacob_bozzalla/Documents/Audacity/SNAGuitar.mp3"
+harddrums = "C:/Users/jacob_bozzalla/Downloads/Seven Nation Army - The White Stripes  Only hard drums (Isolated).mp3"
+TPGuitar = "C:/Users/jacob_bozzalla/Downloads/TPVocals.mp3"
+TPVocals = "C:/Users/jacob_bozzalla/Downloads/TPguitar.mp3"
+enddrums = "C:/Users/jacob_bozzalla/Downloads/enddrums.mp3"
 
 define :main_beat do
-  play :e2, amp: 0.75
+  play :e2
   wait 0.75
-  play :e2, amp: 0.75
+  play :e2
   wait 0.25
-  play :g2, amp: 0.75
+  play :g2
   wait 0.375
-  play :e2, amp: 0.75
+  play :e2
   wait 0.375
-  play :d2, amp: 0.75
+  play :d2
   wait 0.25
-  play :c2, amp: 0.75
+  play :c2
   wait 1
-  play :b1, amp: 0.75
+  play :b1
   wait 1
 end
 
@@ -87,7 +79,7 @@ live_loop :drums2 do
 end
 
 wait 12
-sample guitar, amp: 4
+sample guitar, amp: 2
 
 wait 2
 live_loop :drums2 do
@@ -101,13 +93,11 @@ live_loop :drums2 do
   end
   stop
 end
-sample harddrums, amp: 4
-#end of Song 1
-wait 25
-sample :drum_roll
-wait 6
-print("song 2")
+sample harddrums, amp: 2.5
 
+wait 25
+sample :drum_roll, amp: 2
+wait 6
 
 use_synth :bass_foundation
 use_bpm 173
@@ -116,9 +106,9 @@ define :function do |s|
   wait s
 end
 
-sample TPGuitar, amp: 3.5
-sample TPVocals, amp: 3.5
-sample enddrums, amp: 3.5
+sample TPGuitar, amp: 2
+sample TPVocals, amp: 2
+sample enddrums, amp: 2
 
 live_loop :background_drums do
   
@@ -183,10 +173,10 @@ live_loop :drum3 do
   stop
 end
 wait 105.5
+
 a=1.5
 live_loop :end do
   15.times do
-    print ("start")
     sample :drum_snare_hard, amp: a
     wait 1
     a=a-0.1
