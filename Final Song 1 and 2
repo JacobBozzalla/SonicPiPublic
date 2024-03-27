@@ -1,0 +1,195 @@
+#Custom Song Challenge Seven Nation Army and The Pretender
+#https://www.youtube.com/watch?v=UQ5ecoWt9lY (SNA Drums)
+#https://www.youtube.com/watch?v=t5nZ2fm8kTM (SNA vocals)
+#https://www.youtube.com/watch?v=daaDkjd09DQ (SNA Guitar)
+#https://www.youtube.com/watch?v=Y2h4VRhp2Gc (TP Drums)
+#https://www.youtube.com/watch?v=vnccI_WVS4U (TP Vocals)
+#https://www.youtube.com/watch?v=20ahr-ycWos&t=35s (TP Guitar)
+vocals = "C:/Users/jacob_bozzalla/Documents/Audacity/vocals cut.mp3"
+guitar = "C:/Users/jacob_bozzalla/Documents/Audacity/Seven Nation Army - The White Stripes  Only Guitar (Isolated).mp3"
+harddrums = "C:/Users/jacob_bozzalla/Documents/Audacity/Seven Nation Army - The White Stripes  Only hard drums (Isolated).mp3"
+TPGuitar = "C:/Users/jacob_bozzalla/Documents/Audacity/TPguitar.mp3"
+TPVocals = "C:/Users/jacob_bozzalla/Documents/Audacity/TPVocals.mp3"
+enddrums = "C:/Users/jacob_bozzalla/Documents/Audacity/enddrums.mp3"
+
+
+t=0
+live_loop :timer do
+  print(t)
+  t=t+0.5
+  wait 0.5
+end
+
+define :main_beat do
+  play :e2, amp: 0.75
+  wait 0.75
+  play :e2, amp: 0.75
+  wait 0.25
+  play :g2, amp: 0.75
+  wait 0.375
+  play :e2, amp: 0.75
+  wait 0.375
+  play :d2, amp: 0.75
+  wait 0.25
+  play :c2, amp: 0.75
+  wait 1
+  play :b1, amp: 0.75
+  wait 1
+end
+
+use_synth :bass_foundation
+play :e2, amp: 0.2
+wait 0.75
+play :e2, amp: 0.25
+wait 0.25
+play :g2, amp: 0.3
+wait 0.375
+play :e2, amp: 0.45
+wait 0.375
+play :d2, amp: 0.55
+wait 0.25
+play :c2, amp: 0.65
+wait 1
+play :b1, amp: 0.75
+wait 1
+
+live_loop :bass do
+  use_synth :bass_foundation
+  11.times do
+    main_beat
+  end
+  stop
+end
+
+wait 4
+live_loop :drums do
+  27.times do
+    sample :drum_bass_hard, amp: 0.75
+    sleep 0.5
+    sample :drum_snare_hard, amp: 0.75
+    sleep 0.5
+  end
+  stop
+end
+
+wait 6
+sample vocals
+
+wait 20
+live_loop :drums2 do
+  17.times do
+    sample :drum_cymbal_pedal , amp: 2
+    sleep 0.5
+    sample :drum_bass_hard, amp: 2
+    sleep 0.5
+  end
+  stop
+end
+
+wait 12
+sample guitar, amp: 4
+
+wait 2
+live_loop :drums2 do
+  17.times do
+    sample :drum_cymbal_pedal, amp: 2
+    sleep 0.5
+    sample :drum_cymbal_pedal, amp: 2
+    sleep 0.5
+    sample :drum_cymbal_pedal, amp: 2
+    sleep 0.5
+  end
+  stop
+end
+sample harddrums, amp: 4
+#end of Song 1
+wait 25
+sample :drum_roll
+wait 6
+print("song 2")
+
+
+use_synth :bass_foundation
+use_bpm 173
+define :function do |s|
+  sample :drum_heavy_kick, amp: 2
+  wait s
+end
+
+sample TPGuitar, amp: 3.5
+sample TPVocals, amp: 3.5
+sample enddrums, amp: 3.5
+
+live_loop :background_drums do
+  
+  78.times do
+    sample :drum_snare_hard
+    wait 1.1
+  end
+  stop
+end
+
+wait 14.5
+
+7.times do
+  function 0.5
+  function 3
+  function 0.5
+  function 1.5
+  function 3
+end
+
+wait 5
+live_loop :cymbol do
+  62.times do
+    sample :drum_cymbal_closed, amp: 2
+    wait 1
+  end
+  stop
+end
+
+wait 1
+
+drumsleep = [1,0.5,2,1,0.5,0.5,2 ]
+i=0
+live_loop :drum2 do
+  4.times do
+    7.times do
+      sample :drum_snare_hard
+      sleep (drumsleep [i])
+      i=i+1
+    end
+    i=0
+  end
+  stop
+end
+
+wait 30
+
+3.times do
+  sample :drum_snare_hard
+  wait 0.35
+end
+i=0
+live_loop :drum3 do
+  4.times do
+    7.times do
+      sample :drum_snare_hard
+      sleep (drumsleep [i])
+      i=i+1
+    end
+    i=0
+  end
+  stop
+end
+wait 105.5
+a=1.5
+live_loop :end do
+  15.times do
+    print ("start")
+    sample :drum_snare_hard, amp: a
+    wait 1
+    a=a-0.1
+  end
+  stop
+end
