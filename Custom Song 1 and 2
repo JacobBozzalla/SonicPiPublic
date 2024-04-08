@@ -174,7 +174,7 @@ live_loop :drum3 do
   end
   stop
 end
-wait 105.5
+wait 103.5
 a=1.5
 live_loop :end do
   15.times do
