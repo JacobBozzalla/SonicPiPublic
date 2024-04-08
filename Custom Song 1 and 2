@@ -2,17 +2,15 @@
 #https://www.youtube.com/watch?v=UQ5ecoWt9lY (SNA Drums)
 #https://www.youtube.com/watch?v=t5nZ2fm8kTM (SNA vocals)
 #https://www.youtube.com/watch?v=daaDkjd09DQ (SNA Guitar)
-#https://www.youtube.com/watch?v=Y2h4VRhp2Gc (TP Drums
+#https://www.youtube.com/watch?v=Y2h4VRhp2Gc (TP Drums)
+#https://www.youtube.com/watch?v=vnccI_WVS4U (TP Vocals)
+#https://www.youtube.com/watch?v=20ahr-ycWos&t=35s (TP Guitar)
 vocals = "C:/Users/jacob_bozzalla/Documents/Audacity/vocals cut.mp3"
 guitar = "C:/Users/jacob_bozzalla/Documents/Audacity/Seven Nation Army - The White Stripes  Only Guitar (Isolated).mp3"
 harddrums = "C:/Users/jacob_bozzalla/Documents/Audacity/Seven Nation Army - The White Stripes  Only hard drums (Isolated).mp3"
-
-t=0
-live_loop :timer do
-  print(t)
-  t=t+0.5
-  wait 0.5
-end
+TPGuitar = "C:/Users/jacob_bozzalla/Documents/Audacity/TPguitar.mp3"
+TPVocals = "C:/Users/jacob_bozzalla/Documents/Audacity/TPVocals.mp3"
+enddrums = "C:/Users/jacob_bozzalla/Documents/Audacity/enddrums.mp3"
 
 define :main_beat do
   play :e2, amp: 0.75
@@ -81,7 +79,7 @@ live_loop :drums2 do
 end
 
 wait 12
-sample guitar, amp: 4
+sample guitar, amp: 3
 
 wait 2
 live_loop :drums2 do
@@ -95,38 +93,30 @@ live_loop :drums2 do
   end
   stop
 end
-sample harddrums, amp: 4
+sample harddrums, amp: 3
 #end of Song 1
 wait 25
+sample :drum_roll
+wait 6
 print("song 2")
 
-define :function1 do |a,b,c,d,e|
-  sample :drum_heavy_kick, amp: 5
-  wait a
-  sample :drum_heavy_kick, amp: 5
-  wait b
-  sample :drum_heavy_kick, amp: 5
-  wait c
-  sample :drum_heavy_kick, amp: 5
-  wait d
-  sample :drum_heavy_kick, amp: 5
-  wait e
-end
 
+use_synth :bass_foundation
 use_bpm 173
-define :function1 do |s|
-  sample :drum_heavy_kick, amp: 3.5
+define :function do |s|
+  sample :drum_heavy_kick, amp: 2
   wait s
 end
-sample :drum_roll, amp: 1.5
-wait 6
+
+sample TPGuitar, amp: 3.5
+sample TPVocals, amp: 3.5
+sample enddrums, amp: 3.5
 
 live_loop :background_drums do
-  print("song 2")
   
   78.times do
-    sample :drum_snare_hard, amp: 1.25
-    wait 1
+    sample :drum_snare_hard
+    wait 1.1
   end
   stop
 end
@@ -134,17 +124,14 @@ end
 wait 14.5
 
 7.times do
-  function1 0.5
-  function1 3
-  function1 0.5
-  function1 1.5
-  function1 3
+  function 0.5
+  function 3
+  function 0.5
+  function 1.5
+  function 3
 end
 
-sample :drum_splash_soft, amp: 2
-wait 0.75
-sample :drum_splash_soft, amp: 2
-wait 1.5
+wait 5
 live_loop :cymbol do
   62.times do
     sample :drum_cymbal_closed, amp: 2
@@ -173,7 +160,7 @@ wait 30
 
 3.times do
   sample :drum_snare_hard
-  wait 0.25
+  wait 0.35
 end
 i=0
 live_loop :drum3 do
@@ -187,4 +174,13 @@ live_loop :drum3 do
   end
   stop
 end
-print("over")
+wait 105.5
+a=1.5
+live_loop :end do
+  15.times do
+    sample :drum_snare_hard, amp: a
+    wait 1
+    a=a-0.1
+  end
+  stop
+end
