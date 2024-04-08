@@ -4,13 +4,6 @@ TPVocals = "C:/Users/jacob_bozzalla/Documents/Audacity/TPVocals.mp3"
 enddrums = "C:/Users/jacob_bozzalla/Documents/Audacity/enddrums.mp3"
 
 use_synth :bass_foundation
-t=0
-live_loop :timer do
-  print(t)
-  t=t+0.5
-  wait 0.5
-end
-
 use_bpm 173
 define :function do |s|
   sample :drum_heavy_kick, amp: 2
@@ -83,11 +76,12 @@ live_loop :drum3 do
   end
   stop
 end
-a=1
+wait 105.5
+a=1.5
 live_loop :end do
-  10.times do
+  15.times do
     sample :drum_snare_hard, amp: a
-    wait 1.1
+    wait 1
     a=a-0.1
   end
   stop
