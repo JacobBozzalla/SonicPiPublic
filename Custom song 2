@@ -1,4 +1,7 @@
 # Custom Song 2
+#https://www.youtube.com/watch?v=Y2h4VRhp2Gc (TP Drums)
+#https://www.youtube.com/watch?v=vnccI_WVS4U (TP Vocals)
+#https://www.youtube.com/watch?v=20ahr-ycWos&t=35s (TP Guitar)
 TPGuitar = "C:/Users/jacob_bozzalla/Documents/Audacity/TPguitar.mp3"
 TPVocals = "C:/Users/jacob_bozzalla/Documents/Audacity/TPVocals.mp3"
 enddrums = "C:/Users/jacob_bozzalla/Documents/Audacity/enddrums.mp3"
@@ -9,10 +12,13 @@ define :function do |s|
   sample :drum_heavy_kick, amp: 2
   wait s
 end
-
-sample TPGuitar, amp: 3.5
-sample TPVocals, amp: 3.5
-sample enddrums, amp: 3.5
+drumsleep = [1,0.5,2,1,0.5,0.5,2 ]
+i=0
+sample :drum_roll
+wait 17
+sample TPGuitar, amp: 3
+sample TPVocals, amp: 3
+sample enddrums, amp: 3
 
 live_loop :background_drums do
   
@@ -44,8 +50,7 @@ end
 
 wait 1
 
-drumsleep = [1,0.5,2,1,0.5,0.5,2 ]
-i=0
+
 live_loop :drum2 do
   4.times do
     7.times do
@@ -76,7 +81,7 @@ live_loop :drum3 do
   end
   stop
 end
-wait 103.5
+wait 103.75
 a=1.5
 live_loop :end do
   15.times do
